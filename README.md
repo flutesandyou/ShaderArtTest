@@ -1,13 +1,15 @@
 This is test assignment.
 
 usage:
-Open workspace in VS Code
+1. Open workspace in VS Code
 ShaderArtTest.code-workspace
 
-Use glsl-canvas VS Code estension
+2. Use glsl-canvas VS Code estension
 https://marketplace.visualstudio.com/items?itemName=circledev.glsl-canvas
 
-Press Shift+P, type Show glslCanvas
+3. Press Shift+P, type Show glslCanvas
+
+4. Select different glsl files to see results.
 
 notes:
 I used consts for params instead of uniforms just for convenience
