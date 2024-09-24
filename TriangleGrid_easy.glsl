@@ -8,10 +8,8 @@ const float gridSize = 10.0;
 const float SQRT_2 = 1.4142135623730951;
 
 void main() {
-    // Нормализованные координаты фрагмента
     vec2 uv = gl_FragCoord.xy / u_resolution;
 
-    // Соотношение сторон экрана
     float aspectRatio = u_resolution.x / u_resolution.y;
 
     uv.x *= aspectRatio * sqrt(3.0);
@@ -21,12 +19,10 @@ void main() {
     vec2 height = vec2(0.0, 1.0);
     uv = (uv - 0.5) * rotationMatrix + 0.5;
 
-    // Преобразуем uv в систему координат сетки
     vec2 gridUV = uv * gridSize;
     vec2 cell = floor(gridUV);
-    vec2 localUV = fract(gridUV); // локальные координаты внутри ячейки
+    vec2 localUV = fract(gridUV); // local coords
 
-    // Определение треугольников
     float diagonal = localUV.x + localUV.y;
 
     vec3 yellowColor = vec3(1.0, 1.0, 0.0);

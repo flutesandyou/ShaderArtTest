@@ -2,24 +2,20 @@
 precision mediump float;
 #endif
 
-uniform vec2 u_resolution; // разрешение экрана
+uniform vec2 u_resolution;
 const float gridSize = 10.0;
     
 void main() {
-    // Нормализованные координаты фрагмента
     vec2 uv = gl_FragCoord.xy / u_resolution;
 
-    // Соотношение сторон экрана
     float aspectRatio = u_resolution.x / u_resolution.y;
 
-    // Корректируем uv, чтобы сохранить пропорции квадратов
     uv.x *= aspectRatio;
 
     vec2 gridUV = uv * gridSize;
     vec2 cell = floor(gridUV);
-    vec2 localUV = fract(gridUV); // локальные координаты внутри ячейки
+    vec2 localUV = fract(gridUV); // local coords
 
-    // Определение треугольников
     float diagonal = localUV.x + localUV.y;
 
     vec3 yellowColor = vec3(0.0, 0.5, 1.0);
