@@ -34,7 +34,7 @@ float smoothLine(float edge0, float edge1, float x, float leftSmooth, float righ
 }
 
 // Sad Glitch lines effect (TODO maybe just sample pre-made video instead)
-vec3 GlitchLines(vec3 color, vec2 uv) {   
+vec3 glitchLines(vec3 color, vec2 uv) {   
     for (int i = 0; i < glitchLinesIterations; i++) {
         // Random position and length for each line
         float yPos = random(vec2(u_time * 0.1, float(i)));
@@ -113,7 +113,7 @@ void main() {
     color = color * (1.0 - noiseStrength) + color * noise * noiseStrength;
     
     // Apply glitch effect
-    color = GlitchLines(color, uv);
+    color = glitchLines(color, uv);
     
     // Brightness adjustment
     color *= brightness;
