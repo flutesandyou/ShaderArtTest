@@ -1,4 +1,4 @@
-This is test assignment from instories.
+This is test assignment.
 
 usage:
 Open workspace in VS Code
